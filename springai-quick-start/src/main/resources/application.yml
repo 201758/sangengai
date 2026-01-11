@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  ai:
+    zhipuai:
+      api-key: 18687af644814920a0153715c362d3f1.QTsI64yuZIMSGr11
+      base-url: "https://open.bigmodel.cn/api/paas"
+      chat:
+        options:
+          model: glm-4.5

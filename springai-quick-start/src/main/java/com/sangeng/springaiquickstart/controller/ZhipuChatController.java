@@ -1,5 +1,7 @@
 package com.sangeng.springaiquickstart.controller;
 
+import org.springframework.ai.chat.messages.SystemMessage;
+import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatModel;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,4 +31,14 @@ public class ZhipuChatController {
         String call = chatModel.call(query);
         return call;
     }
+
+    @GetMapping("/message")
+    public String message(@RequestParam(name = "query") String query) {
+        SystemMessage systemMessage = new SystemMessage("You are a helpful assistant.");
+        UserMessage userMessage=new UserMessage(query);
+        // invoke model
+        String call = chatModel.call(systemMessage, userMessage);
+        return call;
+    }
 }
+
